@@ -42,7 +42,7 @@ prediction= model.predict(X_test)
 # evaluate model
 rmse=np.sqrt(mean_squared_error(y_test,prediction))
 mae=mean_absolute_error(y_test,prediction)
-rmse=r2_score(y_test,prediction)
+r2=r2_score(y_test,prediction)
 
 # plot result
 plt.figure(figsize=(10,5))
@@ -54,4 +54,9 @@ plt.show()
 # predict future
 last_values = df[['lag1','lag2','lag3']].iloc[-1].values.reshape(1,-1)
 future = model.predict(last_values)
+
+# print value
 print("Next Rainfall:", future)
+print("RMSE:", rmse)
+print("MAE:", mae)
+print("R2:", r2)
