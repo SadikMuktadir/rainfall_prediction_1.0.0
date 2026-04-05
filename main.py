@@ -1,12 +1,20 @@
 import pandas as pd
 
-rainfall_data = pd.read_csv("data/rainfall_data_2015_2025.csv")
+# load data
+df=pd.read_csv("data/rainfall_data_2015_2025.csv")
 
-rainfall_data["rainfall_lag_1"]=rainfall_data["rainfall"].shift(1)
-rainfall_data["rainfall_lag_2"]=rainfall_data["rainfall"].shift(2)
-rainfall_data["rainfall_lag_3"]=rainfall_data["rainfall"].shift(3)
+# convert string date to real date
+df['Date']=pd.to_datetime(df['Date'])
+df=df.sort_values('Date')
 
+# lag features
+df['lag1']=df['rainfall'].shift(1)
+df['lag2']=df['rainfall'].shift(2)
+df['lag3']=df['rainfall'].shift(3)
 
-train_rainfall_data = rainfall_data[:"2018"]
-test_rainfall_data = rainfall_data["2019":]
+# delete NAN value
+df=df.dropna()
 
+# define X,y
+X=df[['lag1','lag2','lag3']]
+y=df['rainfall']
