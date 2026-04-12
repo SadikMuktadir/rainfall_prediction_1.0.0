@@ -1,0 +1,6 @@
+Station,Latitude,Longitude,Actual,LSTM,XGBoost
+Rajshahi,24.3745,88.6042,1.6,1.48,1.32
+Pabna,24.0064,89.2372,1.42,1.3,1.1
+Natore,24.4206,89.0003,1.55,1.5,1.2
+Naogaon,24.7936,88.9318,1.2,1.1,0.95
+Chapainawabganj,24.5965,88.2775,1.75,1.6,1.4
