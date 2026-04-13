@@ -11,3 +11,4 @@ data={
 
 df=pd.DataFrame(data)
 df.to_csv("rainfall_gis.csv", index=False)
+print("ok")
